@@ -791,7 +791,7 @@ instant notifications and secure parent-driver connectivity.
     </div>
 
 </footer>
-  <script>
+<script>
 function openMail(event) {
     event.preventDefault();
 
@@ -799,8 +799,7 @@ function openMail(event) {
 
     const subject = encodeURIComponent("Inquiry About ASAN");
 
-    const body = encodeURIComponent(
-`Hello ASAN Team,
+    const body = encodeURIComponent(`Hello ASAN Team,
 
 I visited your website and would like to know more about your child tracking platform.
 
@@ -809,26 +808,22 @@ Please contact me regarding:
 • Demo Request
 • Pricing
 
-Thank you.`
-    );
+Thank you.
+
+Best Regards,
+`);
 
     const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
     if (isMobile) {
 
-        // Try to open Gmail App
+        // Open Gmail App with draft
         window.location.href =
-            `googlegmail:///co?to=${email}&subject=${subject}&body=${body}`;
-
-        // If Gmail app doesn't open, fallback to mail app
-        setTimeout(() => {
-            window.location.href =
-                `mailto:${email}?subject=${subject}&body=${body}`;
-        }, 800);
+        `googlegmail:///co?to=${email}&subject=${subject}&body=${body}`;
 
     } else {
 
-        // Desktop → Gmail Web
+        // Open Gmail Web with draft
         window.open(
             `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`,
             "_blank"
