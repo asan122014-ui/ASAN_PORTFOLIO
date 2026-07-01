@@ -763,8 +763,7 @@ instant notifications and secure parent-driver connectivity.
             <p>Hyderabad, India</p>
 
         <p>
-    <a href="mailto:asan122014@gmail.com?subject=Inquiry%20About%20ASAN&body=Hello%20ASAN%20Team,%0A%0AI%20visited%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20child%20tracking%20platform.%0A%0APlease%20contact%20me%20regarding:%0A•%20Product%20Information%0A•%20Demo%20Request%0A•%20Pricing%0A%0AName:%20%0APhone:%20%0ACompany:%20%0A%0AThank%20you."
-       class="footer-link">
+    <a href="#" onclick="openMail(event)" class="footer-link">
         asan122014@gmail.com
     </a>
 </p>
@@ -792,11 +791,14 @@ instant notifications and secure parent-driver connectivity.
     </div>
 
 </footer>
-    <script>
+  <script>
 function openMail(event) {
     event.preventDefault();
 
+    const email = "asan122014@gmail.com";
+
     const subject = encodeURIComponent("Inquiry About ASAN");
+
     const body = encodeURIComponent(
 `Hello ASAN Team,
 
@@ -813,13 +815,25 @@ Thank you.`
     const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
     if (isMobile) {
+
+        // Try to open Gmail App
         window.location.href =
-            `mailto:asan122014@gmail.com?subject=${subject}&body=${body}`;
+            `googlegmail:///co?to=${email}&subject=${subject}&body=${body}`;
+
+        // If Gmail app doesn't open, fallback to mail app
+        setTimeout(() => {
+            window.location.href =
+                `mailto:${email}?subject=${subject}&body=${body}`;
+        }, 800);
+
     } else {
+
+        // Desktop → Gmail Web
         window.open(
-            `https://mail.google.com/mail/?view=cm&fs=1&to=asan122014@gmail.com&su=${subject}&body=${body}`,
+            `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`,
             "_blank"
         );
+
     }
 }
 </script>
