@@ -808,22 +808,25 @@ Please contact me regarding:
 • Demo Request
 • Pricing
 
-Thank you.
+Name:
+Phone:
+Company:
 
-Best Regards,
+Thank you.
 `);
 
     const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
     if (isMobile) {
 
-        // Open Gmail App with draft
+        // Opens Gmail app if it's the default mail app,
+        // otherwise opens the phone's default mail app.
         window.location.href =
-        `googlegmail:///co?to=${email}&subject=${subject}&body=${body}`;
+            `mailto:${email}?subject=${subject}&body=${body}`;
 
     } else {
 
-        // Open Gmail Web with draft
+        // Desktop -> Opens Gmail Web Compose
         window.open(
             `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`,
             "_blank"
