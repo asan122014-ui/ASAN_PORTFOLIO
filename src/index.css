@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+:root {
+  --asan-accent: #FFC65C;
+  --warm-orange: #C96A00;
+  --warm-white: #FFF9EF;
+  --soft-yellow: #FFF0C5;
+  --pure-white: #FFFEFB;
+  --text-dark: #000000;
+  --text-muted: #8D8982;
+  --border-soft: #D8D2C8;
+  --status-soft: #FDEBEC;
+  --status-red: #C93B45;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--warm-white);
+  color: var(--text-dark);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--asan-accent);
+  color: var(--text-dark);
+}
+
+a,
+button,
+input,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button {
+  outline-offset: 4px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--asan-accent) 55%, transparent);
+}
+
+input,
+select {
+  color: var(--text-dark);
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+input::placeholder {
+  color: var(--text-muted);
+}
+
+section {
+  scroll-margin-top: 76px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  main > section {
+    animation: section-enter 550ms ease both;
+  }
+
+  main > section:nth-child(2) { animation-delay: 70ms; }
+  main > section:nth-child(3) { animation-delay: 110ms; }
+
+  @keyframes section-enter {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
