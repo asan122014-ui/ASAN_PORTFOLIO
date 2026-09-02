@@ -1,164 +1,85 @@
-import { ArrowRight, ShieldCheck, MapPin, Bell } from "lucide-react";
+import { ArrowRight, Bell, CheckCircle2, Clock3, MapPin, Navigation, ShieldCheck } from "lucide-react";
+
+const trustItems = [
+  { icon: ShieldCheck, label: "Verified drivers" },
+  { icon: MapPin, label: "Ride visibility" },
+  { icon: Bell, label: "Timely alerts" },
+];
 
 function Hero() {
   return (
-    <section className="overflow-hidden bg-white">
-      <div className="mx-auto max-w-7xl px-4 pb-16 pt-12 sm:px-6 sm:pb-20 sm:pt-16 lg:px-8 lg:pb-24 lg:pt-20">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Content */}
-          <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-black/10 bg-[#FFD400]/20 px-3 py-2">
-              <span className="h-2 w-2 rounded-full bg-black" />
-              <span className="text-xs font-bold uppercase tracking-wide text-black sm:text-sm">
-                School transportation, reimagined
-              </span>
-            </div>
+    <section className="relative overflow-hidden bg-[#FFF9EF] px-4 pb-20 pt-14 sm:px-6 lg:px-8 lg:pb-24 lg:pt-20">
+      <div className="pointer-events-none absolute -right-24 -top-32 h-96 w-96 rounded-full bg-[#FFF0C5] blur-3xl" />
+      <div className="pointer-events-none absolute -left-20 bottom-0 h-64 w-64 rounded-full bg-[#FFC65C]/10 blur-3xl" />
 
-            <h1 className="max-w-3xl text-4xl font-black leading-[1.05] tracking-tight text-black sm:text-5xl md:text-6xl lg:text-7xl">
-              School transport parents can{" "}
-              <span className="relative inline-block">
-                trust.
-                <span className="absolute -bottom-1 left-0 h-2 w-full rounded-full bg-[#FFD400] sm:h-3" />
-              </span>
-            </h1>
+      <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
+        <div className="max-w-2xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#D8D2C8] bg-[#FFFEFB] px-3.5 py-2 shadow-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FFC65C] opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#C96A00]" />
+            </span>
+            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#C96A00]">School transport, made simple</span>
+          </div>
 
-            <p className="mt-7 max-w-xl text-base leading-7 text-black/65 sm:text-lg sm:leading-8">
-              Connect with verified auto and van drivers, know where your
-              child is, and stay informed throughout the school commute.
-            </p>
+          <h1 className="mt-6 text-[42px] font-black leading-[0.98] tracking-[-0.05em] text-black sm:text-[56px] lg:text-[68px]">
+            Every school ride,
+            <span className="block text-[#C96A00]">with more clarity.</span>
+          </h1>
 
-            {/* CTA Buttons */}
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#parents"
-                className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-bold text-white transition hover:bg-[#FFD400] hover:text-black sm:text-base"
-              >
-                Find Transport
-                <ArrowRight
-                  size={18}
-                  className="transition-transform group-hover:translate-x-1"
-                />
-              </a>
+          <p className="mt-6 max-w-xl text-base leading-7 text-[#8D8982] sm:text-lg">
+            A safer, more transparent way for parents to find trusted auto and van drivers—and stay informed throughout the daily commute.
+          </p>
 
-              <a
-                href="#drivers"
-                className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-black px-6 py-3 text-sm font-bold text-black transition hover:bg-black hover:text-white sm:text-base"
-              >
-                Join as Driver
-              </a>
-            </div>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a href="/get-started" className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#FFC65C] px-7 py-4 text-sm font-extrabold text-black shadow-[0_10px_30px_rgba(255,198,92,0.25)] transition-all hover:-translate-y-1 hover:bg-[#C96A00] hover:text-white hover:shadow-[0_14px_34px_rgba(201,106,0,0.25)]">
+              Get started <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+            </a>
+            <a href="#how-it-works" className="inline-flex items-center justify-center rounded-full border border-[#D8D2C8] bg-[#FFFEFB] px-7 py-4 text-sm font-bold text-black transition hover:border-[#FFC65C] hover:bg-[#FFF0C5]">
+              See how it works
+            </a>
+          </div>
 
-            {/* Trust points */}
-            <div className="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FFD400]">
-                  <ShieldCheck size={20} />
+          <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3">
+            {trustItems.map(({ icon: Icon, label }) => (
+              <div key={label} className="flex items-center gap-2 text-xs font-bold text-[#8D8982]">
+                <Icon size={16} className="text-[#C96A00]" /> {label}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative mx-auto w-full max-w-[620px]">
+          <div className="relative overflow-hidden rounded-[32px] border border-[#D8D2C8] bg-[#FFFEFB] p-3 shadow-[0_30px_80px_rgba(77,46,0,0.12)] sm:p-4">
+            <div className="relative h-[460px] overflow-hidden rounded-[24px] bg-[#FFF0C5] sm:h-[520px]">
+              <img src="/images/parentchild.png" alt="Parent and child preparing for school" className="h-full w-full object-cover" />
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/65 to-transparent" />
+
+              <div className="absolute left-4 right-4 top-4 flex items-center justify-between rounded-2xl border border-white/40 bg-[#FFFEFB]/90 px-4 py-3 shadow-lg backdrop-blur-md sm:left-6 sm:right-6 sm:top-6">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#FFC65C] text-black"><Navigation size={19} /></div>
+                  <div><p className="text-[10px] font-bold uppercase tracking-wider text-[#8D8982]">Today’s ride</p><p className="text-sm font-extrabold text-black">Home → School</p></div>
                 </div>
-                <span className="text-sm font-semibold text-black">
-                  Verified drivers
-                </span>
+                <span className="rounded-full bg-[#FFF0C5] px-3 py-1.5 text-[10px] font-extrabold text-[#C96A00]">On route</span>
               </div>
 
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FFD400]">
-                  <MapPin size={20} />
+              <div className="absolute bottom-5 left-5 right-5 grid gap-3 sm:grid-cols-2">
+                <div className="rounded-2xl border border-white/25 bg-black/80 p-4 text-white backdrop-blur-md">
+                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-white/60"><Clock3 size={14} /> Estimated arrival</div>
+                  <p className="mt-2 text-xl font-black">8:24 AM</p>
                 </div>
-                <span className="text-sm font-semibold text-black">
-                  Ride visibility
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FFD400]">
-                  <Bell size={20} />
+                <div className="rounded-2xl border border-white/60 bg-[#FFFEFB]/95 p-4 backdrop-blur-md">
+                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-[#8D8982]"><CheckCircle2 size={14} className="text-[#C96A00]" /> Driver status</div>
+                  <p className="mt-2 text-sm font-extrabold text-black">Verified & active</p>
                 </div>
-                <span className="text-sm font-semibold text-black">
-                  Pickup alerts
-                </span>
               </div>
             </div>
           </div>
 
-          {/* Visual */}
-          <div className="relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              <div className="aspect-[4/5] overflow-hidden rounded-[2rem] bg-[#FFD400] p-5 sm:p-7">
-                <div className="flex h-full flex-col justify-between rounded-[1.5rem] bg-black p-6 text-white sm:p-8">
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-bold">
-                        TODAY'S RIDE
-                      </span>
-
-                      <span className="rounded-full bg-[#FFD400] px-3 py-1 text-xs font-bold text-black">
-                        ON ROUTE
-                      </span>
-                    </div>
-
-                    <div className="mt-10">
-                      <p className="text-sm text-white/50">School commute</p>
-                      <h2 className="mt-2 text-3xl font-black sm:text-4xl">
-                        Home → School
-                      </h2>
-                    </div>
-                  </div>
-
-                  {/* Mock route */}
-                  <div className="my-8">
-                    <div className="relative ml-3 border-l-2 border-dashed border-white/30 pl-7">
-                      <div className="absolute -left-[7px] top-0 h-3 w-3 rounded-full bg-[#FFD400]" />
-
-                      <div>
-                        <p className="text-xs uppercase tracking-wide text-white/40">
-                          Pickup
-                        </p>
-                        <p className="mt-1 font-semibold">
-                          Home
-                        </p>
-                      </div>
-
-                      <div className="mt-10">
-                        <div className="absolute -left-[7px] h-3 w-3 rounded-full bg-[#FFD400]" />
-
-                        <p className="text-xs uppercase tracking-wide text-white/40">
-                          Drop
-                        </p>
-                        <p className="mt-1 font-semibold">
-                          School
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="rounded-2xl bg-white/10 p-4">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-xs text-white/50">
-                          Driver
-                        </p>
-                        <p className="mt-1 font-bold">
-                          Verified Driver
-                        </p>
-                      </div>
-
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FFD400] text-sm font-black text-black">
-                        ✓
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating card */}
-              <div className="absolute -bottom-5 -left-2 rounded-2xl border border-black/10 bg-white p-4 shadow-xl sm:-left-6 sm:p-5">
-                <p className="text-xs font-medium text-black/50">
-                  Ride status
-                </p>
-                <p className="mt-1 text-sm font-black text-black sm:text-base">
-                  Your child is on the way
-                </p>
-              </div>
-            </div>
+          <div className="absolute -right-3 top-1/3 hidden rounded-2xl border border-[#D8D2C8] bg-[#FFFEFB] p-4 shadow-xl sm:block lg:-right-8">
+            <Bell size={18} className="text-[#C96A00]" />
+            <p className="mt-3 text-[10px] font-bold uppercase tracking-wider text-[#8D8982]">Update</p>
+            <p className="mt-1 text-xs font-extrabold">Pickup completed</p>
           </div>
         </div>
       </div>
@@ -167,3 +88,4 @@ function Hero() {
 }
 
 export default Hero;
+

@@ -1,26 +1,38 @@
-import { Search, UserCheck, Bell } from "lucide-react";
+import {
+  ClipboardList,
+  CarFront,
+  ShieldCheck,
+  Bell,
+} from "lucide-react";
 
 const steps = [
   {
     number: "01",
-    icon: Search,
-    title: "Find your transport",
+    title: "Tell us what you need",
     description:
-      "Explore available auto and van drivers that suit your child's school commute.",
+      "Share your school, area and transport requirements.",
+    icon: ClipboardList,
   },
   {
     number: "02",
-    icon: UserCheck,
-    title: "Connect with a verified driver",
+    title: "Find suitable transport",
     description:
-      "Review driver and vehicle information before choosing the right transport.",
+      "Explore suitable auto and van options.",
+    icon: CarFront,
   },
   {
     number: "03",
-    icon: Bell,
+    title: "Review the details",
+    description:
+      "Understand the driver and vehicle information.",
+    icon: ShieldCheck,
+  },
+  {
+    number: "04",
     title: "Stay informed",
     description:
-      "Stay updated throughout the commute with ride status and important alerts.",
+      "Receive relevant updates throughout the commute.",
+    icon: Bell,
   },
 ];
 
@@ -28,56 +40,75 @@ function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="bg-white py-16 sm:py-20 lg:py-24"
+      className="bg-[#FFF0C5] px-4 py-16 sm:px-6 lg:px-8 lg:py-20"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
 
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#F59E0B]">
-            How it works
+        {/* Heading */}
+        <div className="mb-10 max-w-xl">
+          <p className="mb-3 text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#C96A00]">
+            HOW IT WORKS
           </p>
 
-          <h2 className="mt-4 text-3xl font-black tracking-tight text-black sm:text-4xl lg:text-5xl">
-            School transport,
+          <h2 className="text-3xl font-extrabold leading-[1.08] tracking-[-0.04em] text-[#000000] sm:text-4xl lg:text-[44px]">
+            From home to school,
             <br />
             made simpler.
           </h2>
-
-          <p className="mt-5 text-base leading-7 text-black/60 sm:text-lg">
-            From finding the right transport to staying informed during
-            the commute, ASAN RIDES keeps the experience simple for parents.
-          </p>
         </div>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-3 lg:mt-20">
-          {steps.map((step) => {
-            const Icon = step.icon;
+        {/* Journey */}
+        <div className="relative">
 
-            return (
-              <div
-                key={step.number}
-                className="rounded-3xl border border-black/10 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:p-8"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-black text-black/25">
+          {/* Connecting line — desktop */}
+          <div className="absolute left-[12%] right-[12%] top-[38px] hidden h-px border-t border-dashed border-[#FFC65C] lg:block" />
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+
+            {steps.map((step) => {
+              const Icon = step.icon;
+
+              return (
+                <article
+                  key={step.number}
+                  className="group relative text-center lg:text-left"
+                >
+
+                  {/* Number */}
+                  <div className="relative z-10 mx-auto flex h-[46px] w-[46px] items-center justify-center rounded-full bg-[#FFC65C] text-[12px] font-extrabold text-[#000000] shadow-sm lg:mx-0">
                     {step.number}
-                  </span>
-
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F59E0B] text-black">
-                    <Icon size={23} strokeWidth={2.3} />
                   </div>
-                </div>
 
-                <h3 className="mt-8 text-xl font-black text-black sm:text-2xl">
-                  {step.title}
-                </h3>
+                  {/* Icon */}
+                  <div className="mt-5 flex justify-center text-[#000000] lg:justify-start">
+                    <Icon
+                      size={29}
+                      strokeWidth={1.7}
+                      className="transition-transform duration-300 group-hover:-translate-y-1"
+                    />
+                  </div>
 
-                <p className="mt-3 text-sm leading-6 text-black/55 sm:text-base">
-                  {step.description}
-                </p>
-              </div>
-            );
-          })}
+                  {/* Content */}
+                  <h3 className="mt-4 text-[15px] font-extrabold leading-5 text-[#000000]">
+                    {step.title}
+                  </h3>
+
+                  <p className="mx-auto mt-2 max-w-[210px] text-[12px] leading-5 text-black/55 lg:mx-0">
+                    {step.description}
+                  </p>
+
+                </article>
+              );
+            })}
+
+          </div>
+        </div>
+
+        {/* Bottom reassurance */}
+        <div className="mt-12 flex justify-center">
+          <div className="rounded-full bg-[#FFFEFB]/80 px-5 py-3 text-center text-[12px] font-bold text-[#000000] shadow-sm">
+            A clearer school commute starts with better information.
+          </div>
         </div>
 
       </div>
@@ -86,3 +117,5 @@ function HowItWorks() {
 }
 
 export default HowItWorks;
+
+
