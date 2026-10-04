@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 
 const navItems = [
+  { label: "Home", href: "/" },
+  { label: "For Schools", href: "#schools" },
+  { label: "Features", href: "#features" },
+  { label: "Pricing", href: "#pricing" },
   { label: "How It Works", href: "#how-it-works" },
-  { label: "Safety", href: "#safety" },
-  { label: "For Parents", href: "#parents" },
-  { label: "For Drivers", href: "#drivers" },
-  { label: "Our Team", href: "#team" },
+  { label: "Our Approach", href: "#safety" },
+  { label: "Contact", href: "#contact" },
 ];
 
 function Navbar() {
@@ -29,8 +31,8 @@ function Navbar() {
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden items-center gap-2 lg:flex">
-          <div className="flex items-center rounded-full border border-[#D8D2C8] bg-[#FFFEFB] p-1 shadow-sm">
+        <div className="hidden items-center gap-3 lg:flex">
+          <div className="flex items-center gap-1">
             {navItems.map((item) => (
               <a key={item.label} href={item.href} className="rounded-full px-3.5 py-2.5 text-[12px] font-bold text-[#8D8982] transition-all hover:bg-[#FFF0C5] hover:text-[#C96A00]">
                 {item.label}
@@ -41,13 +43,13 @@ function Navbar() {
             <a href="#faq" className="rounded-full px-3.5 py-2.5 text-[12px] font-bold text-[#8D8982] transition-all hover:bg-[#FFF0C5] hover:text-[#C96A00]">FAQ</a>
           </div>
 
-          {/* Main CTA */}
+          <a href="/get-started" className="rounded-xl border border-[#C9C4BC] bg-white px-5 py-3 text-sm font-extrabold text-black transition hover:border-[#FFC65C]">Login</a>
           <a
             href="/get-started"
-            className="ml-2 inline-flex items-center gap-2 rounded-full bg-[#FFC65C] px-5 py-3.5 text-[13px] font-extrabold text-black shadow-[0_8px_24px_rgba(255,198,92,0.2)] transition-all hover:-translate-y-0.5 hover:bg-[#C96A00] hover:text-white"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#FFC900] px-5 py-3.5 text-[13px] font-extrabold text-black shadow-[0_8px_24px_rgba(255,198,92,0.2)] transition-all hover:-translate-y-0.5 hover:bg-[#C96A00] hover:text-white"
           >
-            Get Started
-            <ArrowUpRight size={16} />
+            Request a Demo
+            <ArrowRight size={16} />
           </a>
         </div>
 
@@ -103,4 +105,3 @@ function Navbar() {
 }
 
 export default Navbar;
-

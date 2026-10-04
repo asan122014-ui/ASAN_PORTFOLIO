@@ -14,33 +14,34 @@ function Hero() {
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
         <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#D8D2C8] bg-[#FFFEFB] px-3.5 py-2 shadow-sm">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#F1E4B9] bg-[#FFF8DC] px-3.5 py-2 shadow-sm">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FFC65C] opacity-60" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[#C96A00]" />
             </span>
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#C96A00]">School transport, made simple</span>
+            <span className="text-[11px] font-bold tracking-[0.04em] text-[#2E2A24]">Built for Schools&nbsp; | &nbsp;Trusted by Parents &amp; Drivers</span>
           </div>
 
           <h1 className="mt-6 text-[42px] font-black leading-[0.98] tracking-[-0.05em] text-black sm:text-[56px] lg:text-[68px]">
-            Every school ride,
-            <span className="block text-[#C96A00]">with more clarity.</span>
+            Simplify Your
+            <span className="block">School Transportation</span>
+            <span className="block">with <span className="text-[#E89600]">Asan Rides</span></span>
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-7 text-[#8D8982] sm:text-lg">
-            A safer, more transparent way for parents to find trusted auto and van drivers—and stay informed throughout the daily commute.
+            A complete school transport management platform to connect schools, parents and verified drivers — ensuring safe, reliable and efficient student transportation.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a href="/get-started" className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#FFC65C] px-7 py-4 text-sm font-extrabold text-black shadow-[0_10px_30px_rgba(255,198,92,0.25)] transition-all hover:-translate-y-1 hover:bg-[#C96A00] hover:text-white hover:shadow-[0_14px_34px_rgba(201,106,0,0.25)]">
-              Get started <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+              Request a Demo <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </a>
             <a href="#how-it-works" className="inline-flex items-center justify-center rounded-full border border-[#D8D2C8] bg-[#FFFEFB] px-7 py-4 text-sm font-bold text-black transition hover:border-[#FFC65C] hover:bg-[#FFF0C5]">
-              See how it works
+              Watch Video
             </a>
           </div>
 
-          <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3">
+          <div id="features" className="mt-9 flex flex-wrap gap-x-6 gap-y-3">
             {trustItems.map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-2 text-xs font-bold text-[#8D8982]">
                 <Icon size={16} className="text-[#C96A00]" /> {label}
@@ -83,9 +84,14 @@ function Hero() {
           </div>
         </div>
       </div>
+
+      <div className="relative mx-auto mt-12 grid max-w-7xl grid-cols-2 gap-4 rounded-3xl border border-[#F1E4B9] bg-[#FFF8DC] p-5 sm:grid-cols-3 lg:grid-cols-6">
+        {["Real-time Tracking", "Verified Drivers", "Route & Schedule", "Student Management", "Reports & Insights", "Instant Notifications"].map((item) => (
+          <div key={item} className="border-r border-[#E8D9A7] px-3 text-center last:border-0 sm:text-left"><p className="text-sm font-extrabold text-[#1C1917]">{item}</p><p className="mt-1 text-xs text-[#6F675C]">Safe, simple and visible.</p></div>
+        ))}
+      </div>
     </section>
   );
 }
 
 export default Hero;
-
